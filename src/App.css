@@ -9,3 +9,41 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.App .card-outer {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.App .card {
+  display: flex;
+  flex-direction: column;
+  color: rgb(88, 146, 208);
+  align-items: center;
+  border: 1px solid rgb(102, 96, 96);
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(100, 96, 96, 0.75);
+  width: 200px;
+  height: 250px;
+  justify-content: space-between;
+}
+
+.App .card img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.pokeball {
+  width: 100px;
+  height: auto;
+}
+
+.lazy-load-image-background {
+  background-size: cover !important;
+  background-position: center center !important;
+}
