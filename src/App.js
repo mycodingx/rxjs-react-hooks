@@ -59,6 +59,7 @@ const App = () => {
       <img src={pokeball} alt="pokemon" className="pokeball" />
       <div>
         <input
+          className="search"
           type="text"
           placeholder="Search...."
           value={search}

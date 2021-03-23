@@ -47,3 +47,8 @@ body {
   background-size: cover !important;
   background-position: center center !important;
 }
+
+.search {
+  width: 400px;
+  padding: 10px;
+}
