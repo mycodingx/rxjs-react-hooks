@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { from } from "rxjs";
+import { from, observable } from "rxjs";
 import { map, filter, delay, mergeMap } from "rxjs/operators";
 import "./App.css";
 
@@ -11,15 +11,19 @@ let squaredNumbers = numbersObservable.pipe(
   map((val) => val * val)
 );
 
+const useObservable = (observable, setter) => {
+  useEffect(() => {
+    let subscription = observable.subscribe((result) => {
+      setter(result);
+    });
+    return () => subscription.unsubscribe();
+  }, [observable, setter]);
+};
+
 const App = () => {
   const [currentNumber, setCurrentNumber] = useState(0);
 
-  useEffect(() => {
-    let subscription = squaredNumbers.subscribe((result) => {
-      setCurrentNumber(result);
-    });
-    return () => subscription.unsubscribe();
-  }, []);
+  useObservable(squaredNumbers, setCurrentNumber);
 
   return (
     <div className="App">
